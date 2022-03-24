@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=metro-api
+      - POSTGRES_USER=amyr
+      - POSTGRES_PASSWORD=303
+    expose:
+      - "5434"
+    ports:
+      - 5434:5434
+    command: -p 5434
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    links:
+      - 'db:pgsql-server'
+  # app:
+  #   container_name: node_api
+  #   restart: on-failure
+  #   build: .
+  #   volumes:
+  #     - ./src:/app/src
+  #   ports:
+  #     - "4000:4000"
+  #   command: >
+  #     sh -c "yarn start"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - POSTGRES_DB=metro-api
+  #     - POSTGRES_USER=amyr
+  #     - POSTGRES_PASSWORD=3039023
+  #     - POSTGRES_HOST=db
