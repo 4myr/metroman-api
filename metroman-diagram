@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-03-25T16:38:02.938Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="6KWNivctCZFt6MB_Il3K" version="17.2.3" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-03-25T16:40:57.696Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="vZXwFF7-ARESyibFRjTA" version="17.2.3" type="github" pages="4">
   <diagram id="-yeY55gRCdhr6_YQQWTF" name="Master">
     <mxGraphModel dx="1662" dy="763" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -91,9 +91,6 @@
         </mxCell>
         <mxCell id="tFdUDFv_SSsPdlfgCtdT-24" value="ارسال مجدد کد تایید" style="whiteSpace=wrap;html=1;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="304" y="340" width="111" height="41.26" as="geometry" />
-        </mxCell>
-        <mxCell id="tFdUDFv_SSsPdlfgCtdT-27" value="" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="350" y="390" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
