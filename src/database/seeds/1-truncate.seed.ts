@@ -9,6 +9,9 @@ export class Truncate implements Seeder {
   private async truncate(connection: Connection) {
     await connection
       .createQueryRunner()
+      .query("TRUNCATE TABLE departure_time CASCADE");
+    await connection
+      .createQueryRunner()
       .query("TRUNCATE TABLE station_line CASCADE");
     await connection.createQueryRunner().query("TRUNCATE TABLE line CASCADE");
     await connection

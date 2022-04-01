@@ -21,10 +21,12 @@ export class StationLine {
   id: number;
 
   @ManyToOne(() => Station, (station) => station.stationLines)
-  station: Station;
+  @JoinColumn({ name: "stationId" })
+  station: Station | number;
 
   @ManyToOne(() => Line, (line) => line.lineStations)
-  line: Line;
+  @JoinColumn({ name: "lineId" })
+  line: Line | number;
 
   @OneToMany(() => DepartureTime, (departureTime) => departureTime.stationLine)
   departureTimes: DepartureTime[];

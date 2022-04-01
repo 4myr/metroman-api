@@ -32,7 +32,7 @@ export class CreateStations implements Seeder {
     "شهرری",
     "پالایشگاه",
     "شاهد - باقرشهر",
-    "حرم مطهر   امام خمینی (ره)",
+    "حرم مطهر امام خمینی (ره)",
     "کهریزک",
   ];
 
@@ -166,7 +166,7 @@ export class CreateStations implements Seeder {
   private linemha: string[] = [
     "بیمه",
     "پایانه 1و2 فرودگاه مهرآباد",
-    "پایانه  4و6 فرودگاه مهرآباد",
+    "پایانه 4و6 فرودگاه مهرآباد",
   ];
   private line8g: string[] = ["گلشهر", "شهید سپهبد قاسم سلیمانی"];
 
@@ -222,9 +222,14 @@ export class CreateStations implements Seeder {
             stationName,
             connection
           );
-          await connection
+          if (!stationId) throw new Error(`${stationName} not created`);
+          const createdStationLine = await connection
             .getRepository("station_line")
             .insert({ station: stationId, line: line?.id, order: ++order });
+          if (!createdStationLine)
+            throw new Error(
+              `station_line ${stationName} line ${line?.id} not created`
+            );
         }
       })
     );

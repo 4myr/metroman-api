@@ -7,7 +7,7 @@ fs.readdirSync(linesPath).map((line) => {
   fs.readdirSync(linePath).map((type) => {
     const result = [];
     const fullPath = `${linePath}/${type}`;
-    const resultPath = `${__dirname}/parsed-times/${line}-${type.replace(
+    const resultPath = `${__dirname}/parsed-times/${line}|${type.replace(
       ".html",
       ".json"
     )}`;
