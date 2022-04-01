@@ -1,0 +1,19 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Metroman API",
+      "description": "Metroman API Documentation"
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Line",
+        "description": "Metro Lines APIs"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+  }
