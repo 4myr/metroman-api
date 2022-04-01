@@ -1,7 +1,9 @@
 {
     "env": {
-        "MONGO_USER": "amyr",
-        "MONGO_PASSWORD": "rimA3039023",
-        "MONGO_DB": "metro"
+        "POSTGRES_DB": "metro-api",
+        "POSTGRES_USER": "amyr",
+        "POSTGRES_PASSWORD": "3039023",
+        "POSTGRES_HOST": "127.0.0.1",
+        "POSTGRES_PORT": 5434
     }
 }
