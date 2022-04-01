@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { Line, Station } from "../models/index.model";
+import { Line, Station, StationLine } from "../models/index.model";
 
 const dbConfig = new DataSource({
   type: "postgres",
@@ -8,7 +8,7 @@ const dbConfig = new DataSource({
   username: process.env.POSTGRES_USER || "amyr",
   password: process.env.POSTGRES_PASSWORD || "303",
   database: process.env.POSTGRES_DB || "metro-api",
-  entities: [Station, Line],
+  entities: [Station, Line, StationLine],
   synchronize: true,
 });
 

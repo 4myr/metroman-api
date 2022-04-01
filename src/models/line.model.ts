@@ -4,10 +4,12 @@ import {
   Entity,
   JoinColumn,
   ManyToMany,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { StationLine } from "./station-line.model";
 import { Station } from "./station.model";
 
 @Entity()
@@ -26,8 +28,8 @@ export class Line {
   @JoinColumn()
   end?: Station;
 
-  @ManyToMany(() => Station, (station) => station.lines)
-  stations: Station[];
+  @OneToMany(() => StationLine, (lineStation) => lineStation.line)
+  lineStations: StationLine[];
 
   @CreateDateColumn()
   createdAt?: Date;

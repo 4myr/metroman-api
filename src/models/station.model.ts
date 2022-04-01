@@ -4,10 +4,12 @@ import {
   Entity,
   JoinTable,
   ManyToMany,
+  OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Line } from "./line.model";
+import { StationLine } from "./station-line.model";
 
 @Entity()
 export class Station {
@@ -17,9 +19,8 @@ export class Station {
   @Column()
   name: string;
 
-  @ManyToMany(() => Line, (line) => line.stations)
-  @JoinTable({ name: "station_line" })
-  lines?: Line[];
+  @OneToMany(() => StationLine, (lineStation) => lineStation.station)
+  stationLines: StationLine[];
 
   // @Column({ unique: true })
   // number: number;
