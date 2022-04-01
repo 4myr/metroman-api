@@ -114,3 +114,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+tools/extract-times/parsed-times/*/*
+tools/extract-times/times-to-read/*/*

@@ -176,6 +176,7 @@ export class CreateStations implements Seeder {
     { line: "خط 3", stations: this.line3 },
     { line: "خط 4", stations: this.line4 },
     { line: "خط 5", stations: this.line5 },
+    { line: "خط 7", stations: this.line7 },
     { line: "نیمه شرقی خط 6", stations: this.line6e },
     { line: "نیمه غربی خط 6", stations: this.line6w },
     {

@@ -10,7 +10,7 @@ import { Line } from "../../models/line.model";
 import { StationLine } from "../../models/station-line.model";
 import { Station } from "../../models/station.model";
 export class CreateOneWayDepartureTimes implements Seeder {
-  private departureWay = DepartureWay.ONEWAY;
+  // private departureWay = DepartureWay.ONEWAY;
   private linesPath = `${__dirname}/../../../tools/extract-times/parsed-times`;
 
   private LineSeedIDs: Record<string, string> = {
@@ -78,13 +78,18 @@ export class CreateOneWayDepartureTimes implements Seeder {
     return line;
   }
 
-  public async run(factory: Factory, connection: Connection): Promise<any> {
+  public async process(
+    wayId: number,
+    wayType: DepartureWay,
+    connection: Connection
+  ): Promise<any> {
+    const linesPath = `${this.linesPath}/${wayId}`;
     await Promise.all(
-      fs.readdirSync(this.linesPath).map(async (file) => {
+      fs.readdirSync(linesPath).map(async (file) => {
         const fileParts = file.replace(".json", "").split("|");
         const type = this.getType(fileParts[1]);
         const lineName = this.LineSeedIDs[fileParts[0]];
-        const linePath = `${this.linesPath}/${file}`;
+        const linePath = `${linesPath}/${file}`;
 
         const content = fs.readFileSync(linePath, { encoding: "utf-8" });
         const json = JSON.parse(content);
@@ -103,7 +108,7 @@ export class CreateOneWayDepartureTimes implements Seeder {
                 .getRepository<DepartureTime>("departure_time")
                 .insert({
                   stationLine: stationLine as StationLine,
-                  way: this.departureWay,
+                  way: wayType,
                   type,
                   time,
                   order: ++order,
@@ -113,5 +118,10 @@ export class CreateOneWayDepartureTimes implements Seeder {
         }
       })
     );
+  }
+
+  public async run(factory: Factory, connection: Connection): Promise<any> {
+    await this.process(1, DepartureWay.ONEWAY, connection);
+    await this.process(2, DepartureWay.RETURN, connection);
   }
 }
