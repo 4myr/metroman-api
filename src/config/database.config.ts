@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { Line, Station } from "../models";
+import { Line, Station } from "../models/index.model";
 
 const dbConfig = new DataSource({
   type: "postgres",

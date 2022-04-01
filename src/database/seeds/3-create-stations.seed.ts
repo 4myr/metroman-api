@@ -1,7 +1,7 @@
 import { stat } from "fs";
 import { Connection } from "typeorm";
 import { Factory, Seeder } from "typeorm-seeding";
-import { Line, Station } from "../../models";
+import { Line, Station } from "../../models/index.model";
 
 type SomeStation = { name: string; lines: string[] };
 export class CreateStations implements Seeder {

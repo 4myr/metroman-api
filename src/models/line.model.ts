@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Station } from "./station";
+import { Station } from "./station.model";
 
 @Entity()
 export class Line {

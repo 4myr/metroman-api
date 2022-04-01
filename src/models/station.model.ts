@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Line } from "./line";
+import { Line } from "./line.model";
 
 @Entity()
 export class Station {

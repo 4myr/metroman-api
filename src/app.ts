@@ -2,15 +2,15 @@ import "reflect-metadata";
 import express from "express";
 import cors from "cors";
 // import menuRoutes from "./routes/menu";
-import dbConfig from "./config/database";
+import dbConfig from "./config/database.config";
+import lineRoutes from "./routes/line.routes";
 
 const app = express();
 const PORT: string | number = process.env.PORT || 4001;
 
 app.use(cors());
 app.use(express.json());
-
-// app.use(menuRoutes);
+app.use("/api/v1/", lineRoutes);
 
 dbConfig
   .connect()

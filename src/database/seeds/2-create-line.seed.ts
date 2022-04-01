@@ -1,6 +1,6 @@
 import { Connection } from "typeorm";
 import { Factory, Seeder } from "typeorm-seeding";
-import { Line } from "../../models";
+import { Line } from "../../models/index.model";
 
 export class CreateLines implements Seeder {
   private lines: Pick<Line, "name">[] = [
