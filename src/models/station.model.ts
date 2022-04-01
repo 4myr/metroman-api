@@ -9,6 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { DepartureTime } from "./departure-time.model";
 import { StationLine } from "./station-line.model";
 
 @Entity()

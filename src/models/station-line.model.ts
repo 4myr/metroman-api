@@ -11,6 +11,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { DepartureTime } from "./departure-time.model";
 import { Station } from "./index.model";
 import { Line } from "./line.model";
 
@@ -24,6 +25,9 @@ export class StationLine {
 
   @ManyToOne(() => Line, (line) => line.lineStations)
   line: Line;
+
+  @OneToMany(() => DepartureTime, (departureTime) => departureTime.stationLine)
+  departureTimes: DepartureTime[];
 
   @Column()
   order: number;
